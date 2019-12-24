@@ -11,7 +11,6 @@ class App extends Component {
 
   render() {
     const { loading } = this.props;
-    console.log(this.props)
     return <div>{loading ? null : <Dashboard />}</div>;
   }
 }
