@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from 'react-redux'; 
+import { handleAddTweet, handleToogleTweet } from '../actions/tweets'
+
 
 const initState = { text: ''}
 
@@ -16,11 +19,11 @@ class NewTweet extends React.Component {
       e.preventDefault()
     
       const { text } = this.state
-      //todo: send to the my store
+      const { dispatch , id } = this.props
 
-      console.log(`My new tweet: ${text}`)  
+      dispatch(handleAddTweet(text, id))
+
       this.setState(initState)
-
   }
 
 
@@ -28,6 +31,7 @@ class NewTweet extends React.Component {
   render() {
     const { text } = this.state;
     const tweetLeft = 280 - text.length
+    console.log(this.props)
     return (
       <div>
           <h3 className='center'>Compose New Tweet</h3>
@@ -48,4 +52,4 @@ class NewTweet extends React.Component {
   }
 }
 
-export default NewTweet;
+export default connect()(NewTweet);
