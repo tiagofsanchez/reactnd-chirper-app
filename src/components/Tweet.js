@@ -7,15 +7,24 @@ import {
   TiHeartFullOutline
 } from "react-icons/ti/index.js";
 
+import { handleToogleTweet } from '../actions/tweets'
+
 class Tweet extends Component {
   toParent = (e, id) => {
-    e.preventDefautl();
-    // todo: render parent tweet
+    e.preventDefault();
+    //Todo: connect to the parent Tweet 
   };
 
-  handleLike = () => {
-    //topo: fill the heart of the like button
-  };
+  handleLike = (e) => {
+    e.preventDefault();
+    const { dispatch, tweet , authUsers} = this.props; 
+
+    dispatch(handleToogleTweet({
+      id: tweet.id, 
+      hasLiked: tweet.hasLiked,
+      authUsers
+    }))
+  }
 
   render() {
     const { tweet } = this.props;
