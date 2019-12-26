@@ -70,7 +70,6 @@ function mapStateToProps({ authUsers, users, tweets }, { id }) {
   const tweet = tweets[id];
   //you will have to pass all details of the parentTweet so that you can render after
   const parentTweet = tweet ? tweets[tweet.replyingTo] : null;
-  console.log(parentTweet);
 
   return {
     authUsers,
