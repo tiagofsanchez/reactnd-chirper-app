@@ -6,6 +6,8 @@ import { handleInitialData } from "../actions/shared";
 import Dashboard from "./Dasboard";
 import LoadingBar from "react-redux-loading";
 import NewTweet from "./NewTweet";
+import TweetPage from "./TweetPage";
+import Nav from "./Nav";
 
 class App extends Component {
   componentDidMount() {
@@ -22,8 +24,10 @@ class App extends Component {
         <div>
           {loading ? null : (
             <Fragment>
-              <Route exact path="/" component={Dashboard} />
-              <Route path="/new" component={NewTweet} />
+              <Nav />
+              <TweetPage match={{ params: { id: "czpa59mg577x1oo45cup0d" } }} />
+              {/* <Route exact path="/" component={Dashboard} />
+              <Route path="/new" component={NewTweet} /> */}
             </Fragment>
           )}
         </div>
