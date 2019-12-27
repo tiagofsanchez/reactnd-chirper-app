@@ -6,11 +6,11 @@ A couple of general questions and a couple of them that are a little bit more sp
 
 ## NewTweet component details:
 
-There are a couple of things that I don't get:
+There are a couple of thingsn dsaf that I don't get:
 . How do I get the id from the new tweet?
 
 ```jsx
-//in NewTweet component
+// in NewTweet component
 handleSubmit = e => {
   e.preventDefault();
   const { text } = this.state;
@@ -60,10 +60,12 @@ return {
 
 However, in my action creator we don't have and `action.tweet.id`, so how is that being generated?
 
+## Why we never used mapDispatchToProps?
+
 ## Other detais and things that I am confused with:
 
 ### What is `match` property that is being passed to <TweetPage />?
 
 Well, apparently it passes the props that we want as an objet to our component and in this case we used it as a mean to get the id and mimic the way that the app would work.
 
-### All across the project, I haven't put sorted my tweets
+### TODOS: All across the project, I haven't sorted my tweets
