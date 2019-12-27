@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Tweet from './Tweet';
+import Tweet from "./Tweet";
 
 class Dasboard extends Component {
   render() {
@@ -10,9 +10,11 @@ class Dasboard extends Component {
         <h3 className="center">Timeline</h3>
         <ul className="dasboard-list">
           {tweetsID.map(id => {
-            return <li key={id}>
-              <Tweet id={id} />
-            </li>;
+            return (
+              <li key={id}>
+                <Tweet id={id} />
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -20,7 +22,7 @@ class Dasboard extends Component {
   }
 }
 
-//here we are deconstructing state on the fly as this component only cares about the 
+//here we are deconstructing state on the fly as this component only cares about the
 //I am not sorting the tweets atm
 function mapStateToProps({ tweets }) {
   return {

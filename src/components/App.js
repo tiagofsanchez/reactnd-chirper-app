@@ -24,10 +24,12 @@ class App extends Component {
         <div>
           {loading ? null : (
             <Fragment>
-              <Nav />
-              <TweetPage match={{ params: { id: "czpa59mg577x1oo45cup0d" } }} />
-              {/* <Route exact path="/" component={Dashboard} />
-              <Route path="/new" component={NewTweet} /> */}
+              <div className="container">
+                <Nav />
+                <Route exact path="/" component={Dashboard} />
+                <Route path="/tweet/:id" component={TweetPage} />
+                <Route path="/new" component={NewTweet} />
+              </div>
             </Fragment>
           )}
         </div>

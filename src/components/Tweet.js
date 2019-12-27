@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { formatTweet, formatDate } from "../utils/helpers";
 import {
   TiArrowBackOutline,
@@ -7,24 +8,26 @@ import {
   TiHeartFullOutline
 } from "react-icons/ti/index.js";
 
-import { handleToogleTweet } from '../actions/tweets'
+import { handleToogleTweet } from "../actions/tweets";
 
 class Tweet extends Component {
   toParent = (e, id) => {
     e.preventDefault();
-    //Todo: connect to the parent Tweet 
+    //Todo: connect to the parent Tweet
   };
 
-  handleLike = (e) => {
+  handleLike = e => {
     e.preventDefault();
-    const { dispatch, tweet , authUsers} = this.props; 
+    const { dispatch, tweet, authUsers } = this.props;
 
-    dispatch(handleToogleTweet({
-      id: tweet.id, 
-      hasLiked: tweet.hasLiked,
-      authUsers
-    }))
-  }
+    dispatch(
+      handleToogleTweet({
+        id: tweet.id,
+        hasLiked: tweet.hasLiked,
+        authUsers
+      })
+    );
+  };
 
   render() {
     const { tweet } = this.props;
@@ -36,11 +39,12 @@ class Tweet extends Component {
       hasLiked,
       likes,
       replies,
-      parent
+      parent,
+      id
     } = tweet;
 
     return (
-      <div className="tweet">
+      <Link to={`/tweet/${id}`} className="tweet">
         <img src={avatar} alt={`Avatar of ${name}`} className="avatar" />
         <div className="tweet-info">
           <div>
@@ -69,7 +73,7 @@ class Tweet extends Component {
             <span>{likes !== 0 && likes}</span>
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }
