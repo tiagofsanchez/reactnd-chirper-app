@@ -206,7 +206,7 @@ Note that we also have logger so that we have a clear understanding of the actio
 
 Here I am not going to justify the file structure, just wanted to show you the same.
 
-![file structure](../images/fileStructure.png)
+![file structure](./Images/fileStructure.png)
 
 Having said that, please bear in mind that there are different approaches to format your files:
 
